@@ -88,8 +88,4 @@ Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
 Codename:       jammy
 
-## System Specification Evidence (CLI Screenshots)
 
-Below is the required CLI output captured from my Ubuntu Server VM:
-
-![System Specs Screenshot](./Oleksii-Personal/Pictures/Screenshots/week1-cli-output.png)

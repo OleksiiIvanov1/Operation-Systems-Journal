@@ -92,4 +92,4 @@ Codename:       jammy
 
 Below is the required CLI output captured from my Ubuntu Server VM:
 
-![System Specs Screenshot](./images/week1_system_specs.png)
+![System Specs Screenshot](./Oleksii-Personal/Pictures/Screenshots/week1-cli-output.png)

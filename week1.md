@@ -92,3 +92,21 @@ Codename:       jammy
 
 ![Week 1 CLI Output](images/week1-cli-output.png)
 
+## Week 1 Reflection
+
+This week I learned how to plan a server deployment, configure VirtualBox networking, and choose an appropriate Linux distribution for a headless server environment. 
+I also faced issues with VirtualBox (virtualisation was disabled), but after enabling it in the BIOS I could run the VM.
+Setting up the network took time because the host-only adapter had no IP at first, but after adjusting the settings I was able to connect and gather system information.
+
+Next week I will start planning security and testing methodology for the server.
+
+## Week 1 Deliverables Checklist
+
+| Requirement | Status | Evidence |
+|------------|--------|----------|
+| System Architecture Diagram | ✔️ | Included above |
+| Distribution Selection | ✔️ | Section 2 |
+| Workstation Decision | ✔️ | Section 3 |
+| Network Configuration | ✔️ | Section 4 |
+| CLI System Specs | ✔️ | Screenshot included |
+| Reflection | ✔️ | Section 6 |

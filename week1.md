@@ -66,7 +66,7 @@ Below are example outputs that show the type of data expected.
 
 ### Server CLI Commands
 
-```bash
+bash
 $ uname -a
 Linux server 5.15.0-92-generic #102-Ubuntu SMP x86_64 GNU/Linux
 
@@ -87,3 +87,9 @@ Distributor ID: Ubuntu
 Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
 Codename:       jammy
+
+## System Specification Evidence (CLI Screenshots)
+
+Below is the required CLI output captured from my Ubuntu Server VM:
+
+![System Specs Screenshot](./images/week1_system_specs.png)

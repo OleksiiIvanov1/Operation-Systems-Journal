@@ -88,4 +88,7 @@ Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
 Codename:       jammy
 
+### CLI Output Screenshot
+
+![Week 1 CLI Output](images/week1-cli-output.png)
 

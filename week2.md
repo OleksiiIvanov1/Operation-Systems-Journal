@@ -5,177 +5,163 @@
 ## 1. Performance Testing Plan
 
 ### 1.1 Purpose of Performance Testing
-The purpose of this performance testing plan is to establish a clear and repeatable methodology for evaluating the performance of my Ubuntu Server 22.04 LTS system.  
-This testing will later be used in Week 6 for data visualisation, bottleneck identification, and optimisation.
+The purpose of this performance testing plan is to create a consistent and repeatable method for evaluating the performance of my Ubuntu Server 22.04 LTS system.
 
-The goals of the performance testing plan are:
+This performance testing will later support Week 6, where I will produce:
+- Performance graphs  
+- Bottleneck identification  
+- Optimisation testing  
+- Quantitative analysis  
 
-- Measure system behaviour under different workloads  
-- Collect CPU, memory, disk I/O, and network performance data  
-- Ensure all monitoring is done **remotely over SSH**  
-- Maintain consistency across all performance tests  
-- Prepare for advanced analysis and optimisation later in the project  
+The testing goals are:
+- Measure CPU, RAM, disk I/O, and network behaviour  
+- Collect accurate data remotely  
+- Ensure repeatable test methodology  
+- Prepare the foundation for deeper analysis later  
 
 ---
 
 ### 1.2 Remote Monitoring Methodology
 
-All performance testing will be executed **from my workstation**, never from the VirtualBox console.  
-Only SSH will be used to interact with the server.
+All performance testing will be executed **from my workstation via SSH**.
 
-Remote access command:
+#### Remote SSH Access
+```bash
+ssh alex@192.168.56.20
+Monitoring Tools Used
+Tool	Purpose
+top / htop	Live CPU & RAM usage
+vmstat	System-wide stats (CPU, memory, I/O)
+iostat	Disk I/O performance
+free -h	Memory usage overview
+df -h	Disk space usage
+ss -tuna	Network connections & listening ports
+ping	Latency and packet loss
+journalctl	System logs for warnings & errors
+
+Example Remote Commands
+These are executed from the workstation, not inside VirtualBox:
 
 bash
-ssh alex@192.168.56.20
-
-Monitoring Tools Used During Testing
-
-These tools will be executed remotely through SSH:
-
-Tool	Purpose
-top / htop	Live CPU and memory usage
-vmstat	System-wide performance snapshot
-iostat	Detailed disk I/O performance
-free -h	Memory usage
-df -h	Disk usage summary
-ss -tuna	Network connections overview
-ping	Latency measurement
-journalctl	Logs for warnings and errors
-
-Example Remote Monitoring Commands
-
-All commands are executed from the workstation:
-
+Copy code
 ssh alex@192.168.56.20 "top -b -n 1"
 ssh alex@192.168.56.20 "vmstat 2 5"
 ssh alex@192.168.56.20 "iostat -x 2 5"
 ssh alex@192.168.56.20 "free -h"
 ssh alex@192.168.56.20 "df -h"
 ssh alex@192.168.56.20 "ss -tuna"
-
 2. Security Configuration Checklist
+This checklist outlines the security measures I will implement in Weeks 4 and 5.
+For Week 2, this document serves as planning.
 
-This checklist defines all the security measures I will implement in later weeks (4–5).
-For Week 2, this serves as planning and documentation.
-
-SSH Hardening
-
+✔ SSH Hardening
 Disable password authentication
 
 Enable key-based authentication
 
-Change default SSH port (optional, explained later)
+Restrict SSH to specific users
 
-Limit login to specific users
+Allow SSH only from the workstation IP
 
-Restrict SSH to only the workstation IP
+Disable root login
 
-Firewall Configuration (UFW)
+(Optional) Change default SSH port
 
+✔ Firewall Configuration (UFW)
 Enable UFW
 
-Allow SSH only from the workstation
+Allow SSH only from workstation
 
-Deny all other inbound traffic
+Deny all other incoming traffic
 
-Allow required ports for performance tests (if needed)
+Allow ports only when required for testing
 
-Mandatory Access Control (AppArmor or SELinux)
+✔ Mandatory Access Control (AppArmor / SELinux)
+Ensure AppArmor is enabled
 
-Ensure AppArmor profiles are loaded (Ubuntu default)
+Check loaded profiles
 
-Audit logs for denied operations
+Monitor denied activity in logs
 
-Apply strict profiles for selected services
+Apply strict profiles to selected services
 
-Automatic Updates
-
+✔ Automatic Security Updates
 Enable unattended-upgrades
 
-Apply automatic security patches
+Apply security patches automatically
 
-Log update activity for verification
+Log update actions for verification
 
-User Privilege Management
-
+✔ User Privilege Management
 Create a non-root admin user
 
-Configure sudo securely
+Configure secure sudo usage
 
 Restrict file permissions
 
-Disable root SSH login
+Disable direct root access
 
-Network Security
+✔ Network Security
+Disable unnecessary network services
 
-Disable unused network services
+Verify open ports with ss and nmap
 
-Verify open ports with ss -tuna and nmap
+Implement fail2ban (Week 5)
 
-Implement fail2ban (later in Week 5)
-
-Use host-only network isolation in VirtualBox
+Use Host-Only network isolation
 
 3. Threat Model
-
-This threat model identifies realistic threats to my server system and provides mitigation strategies for each one.
-
 Threat 1: Brute-Force SSH Attacks
-
-Risk: Attackers repeatedly try random passwords to gain access.
-Impact: Full system compromise if successful.
+Risk: Attackers attempt password guessing.
+Impact: Full system compromise.
 
 Mitigation:
 
 Disable password authentication
 
-Use key-based authentication
+Enforce key-based authentication
 
-Restrict SSH to workstation IP only
+Restrict SSH to workstation IP
 
-Enable fail2ban later in Week 5
+Enable fail2ban (Week 5)
 
 Threat 2: Unpatched Vulnerabilities
-
-Risk: Outdated packages or kernel vulnerabilities can be exploited.
-Impact: Remote code execution, privilege escalation, system compromise.
+Risk: Exploit outdated packages or kernel vulnerabilities.
+Impact: Remote code execution, privilege escalation.
 
 Mitigation:
 
 Enable automatic security updates
 
-Regularly check update logs
+Weekly manual update checks
 
-Use LTS distribution (Ubuntu 22.04)
-
-Perform weekly manual update checks
+Use Ubuntu LTS for long-term stability
 
 Threat 3: Unauthorized Network Access
-
-Risk: Attackers scanning the local network could reach the VM.
-Impact: Unauthorized access or exploitation.
+Risk: Attackers scan VirtualBox network and target the VM.
+Impact: Unauthorized service access or exploitation.
 
 Mitigation:
 
-Use VirtualBox Host-Only network isolation
+Restrictive firewall (UFW)
 
-Enable a strict firewall (UFW)
+Host-only isolation
 
-Disable unused services and ports
+Disable unused services
 
-Monitor open ports using ss, netstat, and nmap
+Monitor ports using ss and nmap
 
-Week 2 Reflection
+4. Week 2 Reflection
+This week I created a complete security planning structure and performance testing methodology.
+I learned which tools will be used to monitor system behaviour and how to securely prepare the server before installing any applications.
 
-This week I created a full security planning structure and a monitoring methodology that will be used in later phases.
-I now understand which tools I will rely on for performance testing and how to secure the server before implementing any services.
-My threat model helped me clearly define risks and plan realistic countermeasures.
+My threat model helped me define realistic risks and choose proper mitigation strategies.
 
-Next week I will move on to application selection and installation for the performance testing.
+Next week, I will select applications for load testing and prepare installation documentation.
 
-Week 2 Deliverables Checklist
+5. Week 2 Deliverables Checklist
 Requirement	Status	Evidence
 Performance Testing Plan	✔️	Section 1
 Security Configuration Checklist	✔️	Section 2
 Threat Model	✔️	Section 3
-Reflection	✔️	Section above
+Reflection	✔️	Section 4

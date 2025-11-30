@@ -28,3 +28,196 @@ All applications will be installed **from the workstation using SSH**, not from 
 ```bash
 ssh alex@192.168.56.20 "sudo apt update"
 
+Once connected, the following commands install each tool:
+
+2.1 Update system first
+sudo apt update && sudo apt upgrade -y
+
+2.2 Install CPU & RAM testing tool (stress-ng)
+sudo apt install stress-ng -y
+
+2.3 Install Disk I/O benchmarking tool (fio)
+sudo apt install fio -y
+
+2.4 Install network performance tool (iperf3)
+sudo apt install iperf3 -y
+
+2.5 Install server application (nginx)
+sudo apt install nginx -y
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+
+All these installations must be done via SSH and documented with screenshots in later weeks.
+
+3. Expected Resource Profiles
+
+Below are the anticipated resource usage patterns for each application.
+These predictions will be compared with real tests in Week 6.
+
+3.1 CPU-Intensive – stress-ng
+
+Expected behaviour:
+
+Very high CPU usage (90–100% per core)
+
+Minimal RAM usage
+
+No disk or network load
+
+3.2 RAM-Intensive – stress-ng (memory mode)
+
+Expected behaviour:
+
+Large RAM consumption depending on allocation
+
+Swap activity if memory limit is exceeded
+
+Low CPU usage
+
+3.3 Disk I/O-Intensive – fio
+
+Expected behaviour:
+
+High read/write activity on disk
+
+Increase in IOPS and latency
+
+CPU moderately used during I/O processing
+
+3.4 Network-Intensive – iperf3
+
+Expected behaviour:
+
+High network throughput (bandwidth test)
+
+Measure upload/download speeds from workstation
+
+Minimal CPU and disk load
+
+3.5 Server Application – nginx
+
+Expected behaviour:
+
+Low idle resource usage
+
+Under load:
+
+Moderate CPU usage
+
+Slight RAM increase
+
+Minimal disk activity
+
+Fast response times for static content
+
+4. Monitoring Strategy
+
+For each application, a specific measurement approach will be used. All commands will be executed remotely via SSH.
+
+4.1 CPU Testing (stress-ng)
+
+Monitor with:
+
+ssh alex@192.168.56.20 "top -b -n 1"
+ssh alex@192.168.56.20 "vmstat 2 5"
+
+
+Metrics collected:
+
+CPU %
+
+Load average
+
+Context switching
+
+Thermal throttling (if any)
+
+4.2 RAM Testing (stress-ng memory)
+
+Monitor with:
+
+ssh alex@192.168.56.20 "free -h"
+ssh alex@192.168.56.20 'vmstat 2 5'
+
+
+Metrics collected:
+
+RAM usage
+
+Swap usage
+
+Memory pressure
+
+4.3 Disk I/O Testing (fio)
+
+Monitor with:
+
+ssh alex@192.168.56.20 "iostat -x 2 5"
+ssh alex@192.168.56.20 "vmstat 2 5"
+
+
+Metrics collected:
+
+IOPS
+
+Read/write throughput
+
+Disk latency
+
+Disk utilisation %
+
+4.4 Network Testing (iperf3)
+
+From workstation (as client):
+
+iperf3 -c 192.168.56.20
+
+
+From server (as server mode):
+
+iperf3 -s
+
+
+Metrics collected:
+
+Bandwidth (Mbps)
+
+Jitter
+
+Packet loss
+
+4.5 Server Application Testing (nginx)
+
+Monitor with:
+
+ssh alex@192.168.56.20 "ss -tuna"
+ssh alex@192.168.56.20 "top -b -n 1"
+
+
+External test:
+
+curl -I http://192.168.56.20
+
+
+Metrics collected:
+
+Response time
+
+Active connections
+
+Request throughput
+
+5. Week 3 Reflection
+
+This week I selected the applications I will use to generate different workloads and built a clear plan on how to test them.
+I now understand how each tool stresses a different part of the operating system and how I will monitor performance remotely.
+This prepares me for Week 4 (initial configuration + security) and Week 6 (performance testing and charts).
+
+6. Week 3 Checklist
+Requirement	Status	Evidence
+Application Selection Matrix	✔️	Section 1
+Installation Documentation	✔️	Section 2
+Expected Resource Profiles	✔️	Section 3
+Monitoring Strategy	✔️	Section 4
+Reflection	✔️	Section 5

@@ -74,7 +74,7 @@ $ lsb_release -a
 Distributor ID: Ubuntu
 Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
-Codename:       jammy
+Codename:       noble
 
 ![Week 1 CLI Output](/images/week1-cli-output.png)
 

@@ -92,20 +92,20 @@ Lack of IDS beyond fail2ban
 
 And explain how these risks could be mitigated in the future.
 
-Week 7 Reflection
+**Week 7 Reflection**
 
 This final week allowed me to evaluate the entire server configuration from both a performance and security perspective.
 Running Lynis and nmap helped me identify remaining gaps, while the service audit ensured that the system was not running anything unnecessary.
 Completing the seven-week project helped me develop real command-line administration skills and understand OS behaviour as an integrated system.
 
-Week 7 Checklist:
+**Week 7 Checklist:**
 
-Lynis scan	✔️
+Lynis scan	- completed
 
-nmap analysis	✔️
+nmap analysis	- completed
 
-SSH & service audit	✔
+SSH & service audit	- completed
 
-️Remaining risk analysis✔️
+️Remaining risk analysis- completed
 
-Reflection	✔️
+Reflection - completed

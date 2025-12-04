@@ -57,7 +57,7 @@ Security Baseline Verification Script (security-baseline.sh)
 This script runs on the server, verifying all security controls from Week 4 and 5.
 
 #!/bin/bash
-# Security Baseline Verification Script
+**Security Baseline Verification Script**
 
 echo "Checking SSH configuration..."
 grep -E "PasswordAuthentication no" /etc/ssh/sshd_config
@@ -80,7 +80,7 @@ Remote Monitoring Script (monitor-server.sh)
 This script runs on the workstation, collecting performance data from the server over SSH.
 
 #!/bin/bash
-# Remote Server Monitoring Script
+**Remote Server Monitoring Script**
 
 SERVER="192.168.56.20"
 

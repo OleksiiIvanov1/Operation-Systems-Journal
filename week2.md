@@ -2,9 +2,9 @@
 
 ---
 
-## 1. Performance Testing Plan
+##  Performance Testing Plan
 
-### 1.1 Purpose of Performance Testing
+### Purpose of Performance Testing
 The purpose of this performance testing plan is to create a consistent and repeatable method for evaluating the performance of my Ubuntu Server 22.04 LTS system.
 
 This performance testing will later support Week 6, where I will produce:
@@ -21,7 +21,7 @@ The testing goals are:
 
 ---
 
-### 1.2 Remote Monitoring Methodology
+### Remote Monitoring Methodology
 
 All performance testing will be executed **from my workstation via SSH**.
 
@@ -110,7 +110,7 @@ Implement fail2ban (Week 5)
 
 Use Host-Only network isolation
 
-3. Threat Model
+ Threat Model
 Threat 1: Brute-Force SSH Attacks
 Risk: Attackers attempt password guessing.
 Impact: Full system compromise.
@@ -151,7 +151,7 @@ Disable unused services
 
 Monitor ports using ss and nmap
 
-4. Week 2 Reflection
+ Week 2 Reflection
 This week I created a complete security planning structure and performance testing methodology.
 I learned which tools will be used to monitor system behaviour and how to securely prepare the server before installing any applications.
 
@@ -159,7 +159,7 @@ My threat model helped me define realistic risks and choose proper mitigation st
 
 Next week, I will select applications for load testing and prepare installation documentation.
 
-5. Week 2 Deliverables Checklist
+ Week 2 Deliverables Checklist
 Requirement	Status	Evidence
 Performance Testing Plan	✔️	Section 1
 Security Configuration Checklist	✔️	Section 2

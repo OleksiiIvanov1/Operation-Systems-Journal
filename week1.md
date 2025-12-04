@@ -3,7 +3,7 @@
 
 ## Distribution Selection Justification
 
-For my server, I selected **Ubuntu Server 22.04 LTS (Long Term Support)**.
+For my server, I selected Ubuntu Server 22.04 LTS (Long Term Support).
 
 ### Justification
 Ubuntu Server provides a stable, secure, and well-documented environment ideal for headless administration and SSH management. It’s widely used in the cloud and enterprise environments, making it an excellent learning choice.
@@ -16,13 +16,13 @@ Ubuntu Server provides a stable, secure, and well-documented environment ideal f
 | **Alpine Linux** | Extremely lightweight | Minimal default packages, steep learning curve | Ideal for containers, not general-purpose use |
 
 **Decision Summary:**  
-I chose **Ubuntu Server 22.04 LTS** because it offers the best mix of usability, documentation, and long-term support while remaining close to real-world server environments.
+I chose Ubuntu Server 22.04 LTS because it offers the best mix of usability, documentation, and long-term support while remaining close to real-world server environments.
 
 ---
 
 ## Workstation Configuration Decision
 
-For my workstation, I selected **Option B – Host Machine with SSH Client**.
+For my workstation, I selected Option B – Host Machine with SSH Client.
 
 ### Justification
 Using my host machine as the workstation provides a realistic and efficient workflow. It avoids unnecessary resource usage by running multiple VMs and mirrors how real administrators manage remote servers.
@@ -33,14 +33,14 @@ Using my host machine as the workstation provides a realistic and efficient work
 | **B. Host Machine with SSH Client** | Use host terminal for SSH | Simple, efficient, realistic | Less isolation |
 | **C. Hybrid Setup** | Combination of host and VM tools | Flexible | More complex configuration |
 
-**Chosen Option:** Host Machine (Option B)  
+Chosen Option: Host Machine (Option B)  
 SSH will be used for all administrative tasks and file transfers.
 
 ---
 
 ## Network Configuration Documentation
 
-The network is implemented through **VirtualBox Host-Only Networking**, enabling a private communication channel between the workstation and server.
+The network is implemented through VirtualBox Host-Only Networking, enabling a private communication channel between the workstation and server.
 
 ### Planned VirtualBox Network Configuration
 
@@ -53,9 +53,9 @@ The network is implemented through **VirtualBox Host-Only Networking**, enabling
 
 | System | Adapter | IP Address | Purpose |
 |---------|----------|------------|----------|
-| **Workstation (Host)** | Host-Only | `192.168.56.10` | SSH access to server |
-| **Server (VM)** | Host-Only | `192.168.56.20` | Receives SSH connections |
-| **VirtualBox Network** | Host-Only Network | `192.168.56.0/24` | Internal communication |
+| Workstation (Host) | Host-Only | `192.168.56.10` | SSH access to server |
+| Server (VM) | Host-Only | `192.168.56.20` | Receives SSH connections |
+| VirtualBox Network | Host-Only Network | `192.168.56.0/24` | Internal communication |
 
 ---
 

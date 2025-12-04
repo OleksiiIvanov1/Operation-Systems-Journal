@@ -1,72 +1,59 @@
-## System Architecture Diagram
+Week 1 – System Setup and Initial Planning
+System Architecture Diagram
 <img width="751" height="668" alt="diagram" src="https://github.com/user-attachments/assets/9fa5787c-2c7b-4362-982b-272ac89fc540" />
 
-## Distribution Selection Justification
+This is the basic layout I planned for the coursework: a headless Ubuntu Server VM running in VirtualBox, and my host computer acting as the workstation. All administration will be done through SSH, not the VirtualBox console.
 
-For my server, I selected Ubuntu Server 22.04 LTS (Long Term Support).
+Choosing the Server Distribution
 
-### Justification
-Ubuntu Server provides a stable, secure, and well-documented environment ideal for headless administration and SSH management. It’s widely used in the cloud and enterprise environments, making it an excellent learning choice.
+For the server OS, I went with Ubuntu Server 22.04 LTS.
+My goal was to use something stable, well-documented, and close to what’s used in real cloud environments. Ubuntu Server ticked all those boxes.
 
-| Distribution | Advantages | Disadvantages | Suitability |
-|---------------|-------------|----------------|--------------|
-| **Ubuntu Server 22.04 LTS** | Excellent community support, 5-year security updates, modern package management (APT), easy SSH/firewall setup | Slightly higher resource usage than minimal distros | Best balance for learning and performance |
-| **Debian 12** | Highly stable, minimal resource usage | Older software versions, slower update cycle | Good for production environments |
-| **CentOS Stream 9** | Enterprise-grade, SELinux included | Complex setup, different package manager (dnf) | Best for Red Hat ecosystems |
-| **Alpine Linux** | Extremely lightweight | Minimal default packages, steep learning curve | Ideal for containers, not general-purpose use |
+Here’s the comparison I made while deciding:
 
-**Decision Summary:**  
-I chose Ubuntu Server 22.04 LTS because it offers the best mix of usability, documentation, and long-term support while remaining close to real-world server environments.
+Distribution	Advantages	Disadvantages	Suitability
+Ubuntu Server 22.04 LTS	Strong community support, long-term updates, easy to configure SSH and firewall	A bit heavier than minimal distros	Great for learning + real-world use
+Debian 12	Very stable, lightweight	Older packages	Better for production machines
+CentOS Stream 9	SELinux built-in, enterprise-focused	Uses dnf, different workflow	Good for Red Hat users
+Alpine Linux	Super lightweight	Harder for beginners, minimal tools	Best for containers
 
----
+Why I chose Ubuntu Server 22.04:
+It’s reliable, familiar, and widely supported. For this coursework I need to configure a lot of different tools, and Ubuntu makes that much smoother.
 
-## Workstation Configuration Decision
+Workstation Setup Decision
 
-For my workstation, I selected Option B – Host Machine with SSH Client.
+For the workstation, I decided to use my host machine with an SSH client instead of a second VM.
 
-### Justification
-Using my host machine as the workstation provides a realistic and efficient workflow. It avoids unnecessary resource usage by running multiple VMs and mirrors how real administrators manage remote servers.
+Why:
+Running two VMs at the same time slows everything down. Using my host machine feels more realistic because in real life admins normally SSH into servers from their own computer anyway.
 
-| Option | Description | Pros | Cons |
-|--------|--------------|------|------|
-| **A. Linux Desktop VM** | Separate VM for admin access | Isolation, Linux GUI | Consumes extra resources |
-| **B. Host Machine with SSH Client** | Use host terminal for SSH | Simple, efficient, realistic | Less isolation |
-| **C. Hybrid Setup** | Combination of host and VM tools | Flexible | More complex configuration |
+Comparison I made:
 
-Chosen Option: Host Machine (Option B)  
-SSH will be used for all administrative tasks and file transfers.
+Option	Pros	Cons
+Linux Desktop VM	Clean separation, GUI available	Uses more system resources
+Host Machine (SSH client)	Simple, fast, realistic workflow	Less isolated than having 2 VMs
+Hybrid	Very flexible	More complicated setup
 
----
+So I went with Option B (Host Machine + SSH).
 
-## Network Configuration Documentation
+Network Configuration Plan
 
-The network is implemented through VirtualBox Host-Only Networking, enabling a private communication channel between the workstation and server.
+The server and workstation communicate through VirtualBox Host-Only Networking.
+This keeps everything isolated from the external network, which is required for the module.
 
-### Planned VirtualBox Network Configuration
+VirtualBox Adapter Setup
+Adapter	Type	Network	Purpose
+Adapter 1	Host-Only	192.168.56.0/24	Main SSH connection
+Adapter 2 (optional)	NAT	Internet access for updates	
+Planned IP Addresses
+System	IP Address	Purpose
+Workstation (Host)	192.168.56.10	SSH into server
+Server VM	192.168.56.20	Receives SSH connections
+Host-Only Network	192.168.56.0/24	Private internal network
+Server System Information (CLI Output)
 
-| Adapter | Type | Network | Purpose |
-|----------|------|----------|----------|
-| **Adapter 1** | Host-Only Adapter | `192.168.56.0/24` | SSH connection between workstation and server |
-| **Adapter 2 (optional)** | NAT | Automatically assigned | Internet access for package updates |
+After getting the VM running, I used SSH to gather the system information required for Week 1.
 
-### Planned IP Addressing
-
-| System | Adapter | IP Address | Purpose |
-|---------|----------|------------|----------|
-| Workstation (Host) | Host-Only | `192.168.56.10` | SSH access to server |
-| Server (VM) | Host-Only | `192.168.56.20` | Receives SSH connections |
-| VirtualBox Network | Host-Only Network | `192.168.56.0/24` | Internal communication |
-
----
-
-## CLI System Specification Documentation
-
-The following commands will be used to document system information once both systems are deployed.  
-Below are example outputs that show the type of data expected.
-
-### Server CLI Commands
-
-bash
 $ uname -a
 Linux server 5.15.0-92-generic #102-Ubuntu SMP x86_64 GNU/Linux
 
@@ -88,25 +75,24 @@ Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
 Codename:       jammy
 
-### CLI Output Screenshot
+Reflection on Week 1
 
-![Week 1 CLI Output](images/week1-cli-output.png)
+Most of this week was about planning the environment, getting VirtualBox working properly, and checking that I could actually SSH into the server.
+At first VirtualBox refused to start any VMs because virtualisation was turned off in BIOS, so I had to fix that.
+After that, networking took a bit of trial and error because the Host-Only adapter didn’t have an IP at first, but once I updated the settings it worked and I could gather system information through SSH.
 
-## Week 1 Reflection
+Overall, Week 1 set the foundation for everything else. Next week I’ll focus on the security and performance testing plan.
 
-This week I learned how to plan a server deployment, configure VirtualBox networking, and choose an appropriate Linux distribution for a headless server environment. 
-I also faced issues with VirtualBox (virtualisation was disabled), but after enabling it in the BIOS I could run the VM.
-Setting up the network took time because the host-only adapter had no IP at first, but after adjusting the settings I was able to connect and gather system information.
+Week 1 Checklist:
 
-Next week I will start planning security and testing methodology for the server.
+System Architecture Diagram	✔️
 
-## Week 1 Deliverables Checklist
+Distribution Selection	✔️
 
-| Requirement | Status | Evidence |
-|------------|--------|----------|
-| System Architecture Diagram | ✔️ | Included above |
-| Distribution Selection | ✔️ | Section 2 |
-| Workstation Decision | ✔️ | Section 3 |
-| Network Configuration | ✔️ | Section 4 |
-| CLI System Specs | ✔️ | Screenshot included |
-| Reflection | ✔️ | Section 6 |
+Workstation Choice	✔️
+
+Network Configuration	✔️
+
+CLI Evidence	✔️
+
+Reflection	✔️

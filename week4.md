@@ -1,4 +1,4 @@
-## Week 4 – Initial System Configuration & Security Implementation
+## Week 4 – Initial System Configuration and Security Implementation
 SSH Key-Based Authentication
 
 This week I began securing my Ubuntu Server by replacing password-based SSH access with key-based authentication, which is far more secure and prevents brute-force attacks.
@@ -53,7 +53,7 @@ Default deny incoming	Blocks any other unwanted traffic
 
 This setup ensures that even if someone discovers the server IP, they still won't be able to connect.
 
-User & Privilege Management
+User and Privilege Management
 
 To avoid working as root, I created a dedicated non-root administrative user.
 

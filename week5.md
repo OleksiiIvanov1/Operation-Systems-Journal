@@ -106,7 +106,6 @@ Creating both scripts helped me practice automation and prepare for the monitori
 
 **Week 5 Checklist:**
 
-Requirement	Status	Evidence
 
 Access Control (AppArmor)	Section above- completed
 

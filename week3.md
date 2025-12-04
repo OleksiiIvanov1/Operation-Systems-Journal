@@ -24,18 +24,23 @@ ssh alex@192.168.56.20 "sudo apt update"
 Below are the installation commands for each tool:
 
 **Update and upgrade system**
+
 sudo apt update && sudo apt upgrade -y
 
 **CPU and RAM stress tool**
+
 sudo apt install stress-ng -y
 
 **Disk I/O benchmarking tool**
+
 sudo apt install fio -y
 
 **Network performance tool**
+
 sudo apt install iperf3 -y
 
 **Simple web server**
+
 sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx

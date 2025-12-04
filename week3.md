@@ -1,129 +1,107 @@
-# Week 3 – Application Selection for Performance Testing
+## Week 3 – Application Selection for Performance Testing
+Application Selection Matrix
 
----
+This week I focused on choosing the tools I’ll use later for performance testing.
+The goal was to cover different types of workloads the operating system might deal with — CPU, memory, disk, network and a simple server application.
 
-## Application Selection Matrix
+I picked tools that are lightweight, easy to install on Ubuntu Server, and commonly used in real system testing.
 
-To evaluate system performance under different workloads, I selected applications that represent **CPU-intensive**, **RAM-intensive**, **Disk I/O-intensive**, **Network-intensive**, and **Server workload** categories.
+Workload Type	Application	Why I Chose It
+CPU-Intensive	stress-ng	Can push the CPU to 100% and supports very specific stress tests.
+RAM-Intensive	stress-ng (memory mode)	Lets me allocate large chunks of memory and see how the system behaves under pressure.
+Disk I/O-Intensive	fio	A standard benchmarking tool for testing read/write speeds and latency.
+Network-Intensive	iperf3	Makes it easy to test network throughput between the workstation and server.
+Server Application	nginx	Lightweight web server that behaves predictably and is perfect for simple load testing.
+Installation Documentation (All via SSH)
 
-Each application was chosen because it is lightweight, easy to run on Ubuntu Server, and can generate measurable load.
+All installations were (or will be) done from the workstation using SSH, not inside the VM directly.
 
-### Application Selection Matrix
+Before installing anything, I update the package list:
 
-| Workload Type       | Application      | Justification |
-|---------------------|------------------|---------------|
-| **CPU-Intensive**   | `stress-ng`      | Can generate controlled CPU load, allows fine-tuned stress testing across multiple cores. |
-| **RAM-Intensive**   | `stress-ng` (RAM mode) | Able to allocate large memory blocks to test memory pressure. |
-| **Disk I/O-Intensive** | `fio`         | Industry-standard tool for benchmarking disk reads/writes and IOPS. |
-| **Network-Intensive** | `iperf3`       | Creates measurable upload/download throughput between client and server. |
-| **Server Application** | `nginx`       | Lightweight production-grade web server, useful for real-world request/performance testing. |
-
----
-
-## Installation Documentation (All commands via SSH)
-
-All applications will be installed **from the workstation using SSH**, not from VirtualBox console.
-
-### Update package lists first:
-```bash
 ssh alex@192.168.56.20 "sudo apt update"
 
-Once connected, the following commands install each tool:
 
-  Update system first
+Below are the installation commands for each tool:
+
+# Update and upgrade system
 sudo apt update && sudo apt upgrade -y
 
-  Install CPU & RAM testing tool (stress-ng)
+# CPU and RAM stress tool
 sudo apt install stress-ng -y
 
-  Install Disk I/O benchmarking tool (fio)
+# Disk I/O benchmarking tool
 sudo apt install fio -y
 
-  Install network performance tool (iperf3)
+# Network performance tool
 sudo apt install iperf3 -y
 
-  Install server application (nginx)
+# Simple web server
 sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 
 
-All these installations must be done via SSH and documented with screenshots in later weeks.
+Screenshots of these installs will be included later during the practical weeks.
 
-   Expected Resource Profiles
+Expected Resource Profiles
 
-Below are the anticipated resource usage patterns for each application.
-These predictions will be compared with real tests in Week 6.
+Before running any tests, I wrote down how I expect each tool to behave.
+This will help me compare real performance data in Week 6.
 
-  CPU-Intensive – stress-ng
+CPU-Intensive – stress-ng
 
-Expected behaviour:
+CPU usage should spike close to 100% on each core.
 
-Very high CPU usage (90–100% per core)
+Very little RAM or disk use.
 
-Minimal RAM usage
+Good for checking process scheduling and load average.
 
-No disk or network load
+RAM-Intensive – stress-ng (memory mode)
 
-  RAM-Intensive – stress-ng (memory mode)
+High RAM usage depending on the size I allocate.
 
-Expected behaviour:
+Possible swap usage if memory runs out.
 
-Large RAM consumption depending on allocation
+Lower CPU usage compared to the CPU test.
 
-Swap activity if memory limit is exceeded
+Disk I/O – fio
 
-Low CPU usage
+Heavy read/write operations.
 
-  Disk I/O-Intensive – fio
+Increase in IOPS and disk latency.
 
-Expected behaviour:
+Moderate CPU usage due to I/O handling.
 
-High read/write activity on disk
+Network – iperf3
 
-Increase in IOPS and latency
+High throughput tests between workstation ↔ server.
 
-CPU moderately used during I/O processing
+Minimal RAM and CPU usage.
 
-   Network-Intensive – iperf3
+Great for testing bandwidth and latency.
 
-Expected behaviour:
+Server Application – nginx
 
-High network throughput (bandwidth test)
+Very low resource usage when idle.
 
-Measure upload/download speeds from workstation
+Under load, small CPU and RAM increase.
 
-Minimal CPU and disk load
+Useful for checking response times and connection handling.
 
-  Server Application – nginx
+Monitoring Strategy
 
-Expected behaviour:
+Each application needs a specific way of monitoring its impact on the system.
+All tests will be monitored remotely over SSH.
 
-Low idle resource usage
+CPU Testing (stress-ng)
 
-Under load:
-
-Moderate CPU usage
-
-Slight RAM increase
-
-Minimal disk activity
-
-Fast response times for static content
-
-   Monitoring Strategy
-
-For each application, a specific measurement approach will be used. All commands will be executed remotely via SSH.
-
-   CPU Testing (stress-ng)
-
-Monitor with:
+I’ll monitor CPU behaviour with:
 
 ssh alex@192.168.56.20 "top -b -n 1"
-ssh alex@192.168.56.20 "vmstat 2 5"
+ssh alex@192.168.56.20 'vmstat 2 5'
 
 
-Metrics collected:
+Metrics:
 
 CPU %
 
@@ -131,17 +109,15 @@ Load average
 
 Context switching
 
-Thermal throttling (if any)
+RAM Testing (stress-ng in memory mode)
 
-4.2 RAM Testing (stress-ng memory)
-
-Monitor with:
+Monitoring commands:
 
 ssh alex@192.168.56.20 "free -h"
 ssh alex@192.168.56.20 'vmstat 2 5'
 
 
-Metrics collected:
+Metrics:
 
 RAM usage
 
@@ -149,50 +125,50 @@ Swap usage
 
 Memory pressure
 
-  Disk I/O Testing (fio)
+Disk Testing (fio)
 
-Monitor with:
+Monitoring commands:
 
 ssh alex@192.168.56.20 "iostat -x 2 5"
-ssh alex@192.168.56.20 "vmstat 2 5"
+ssh alex@192.168.56.20 'vmstat 2 5'
 
 
-Metrics collected:
+Metrics:
 
 IOPS
 
-Read/write throughput
+Read/write speed
 
 Disk latency
 
 Disk utilisation %
 
-   Network Testing (iperf3)
+Network Testing (iperf3)
 
-From workstation (as client):
-
-iperf3 -c 192.168.56.20
-
-
-From server (as server mode):
+Server side (VM):
 
 iperf3 -s
 
 
-Metrics collected:
+Workstation side:
 
-Bandwidth (Mbps)
+iperf3 -c 192.168.56.20
+
+
+Metrics:
+
+Network throughput
 
 Jitter
 
 Packet loss
 
-   Server Application Testing (nginx)
+Nginx Web Server Testing
 
-Monitor with:
+Monitoring commands:
 
 ssh alex@192.168.56.20 "ss -tuna"
-ssh alex@192.168.56.20 "top -b -n 1"
+ssh alex@192.168.56.20 'top -b -n 1'
 
 
 External test:
@@ -200,24 +176,35 @@ External test:
 curl -I http://192.168.56.20
 
 
-Metrics collected:
+Metrics:
 
 Response time
 
 Active connections
 
-Request throughput
+Basic request handling performance
 
-  Week 3 Reflection
+Week 3 Reflection
 
-This week I selected the applications I will use to generate different workloads and built a clear plan on how to test them.
-I now understand how each tool stresses a different part of the operating system and how I will monitor performance remotely.
-This prepares me for Week 4 (initial configuration + security) and Week 6 (performance testing and charts).
+This week helped me decide which tools I’ll rely on later for testing the system under different workloads.
+Choosing real Linux testing tools made me understand how performance testing is normally done in server environments.
 
-  Week 3 Checklist
+I now have a clear plan for:
+
+What I will test
+
+How I will stress each part of the system
+
+How I will collect performance data
+
+Which commands I will use during monitoring
+
+This sets me up well for Week 4, where I’ll begin locking down the server and applying the first security configurations.
+
+Week 3 Deliverables Checklist
 Requirement	Status	Evidence
-Application Selection Matrix	✔️	Section 1
-Installation Documentation	✔️	Section 2
-Expected Resource Profiles	✔️	Section 3
-Monitoring Strategy	✔️	Section 4
-Reflection	✔️	Section 5
+Application Selection Matrix	✔️	Included above
+Installation Documentation	✔️	Commands listed
+Expected Resource Profiles	✔️	Section above
+Monitoring Strategy	✔️	Covered for each tool
+Reflection	✔️	End of Week 3

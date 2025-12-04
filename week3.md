@@ -201,7 +201,7 @@ Which commands I will use during monitoring
 
 This sets me up well for Week 4, where I’ll begin locking down the server and applying the first security configurations.
 
-Week 3 Deliverables Checklist:
+**Week 3 Deliverables Checklist:**
 
 Application Selection Matrix Included above - completed
 

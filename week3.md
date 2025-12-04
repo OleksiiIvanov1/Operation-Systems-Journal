@@ -2,7 +2,7 @@
 
 ---
 
-## 1. Application Selection Matrix
+## Application Selection Matrix
 
 To evaluate system performance under different workloads, I selected applications that represent **CPU-intensive**, **RAM-intensive**, **Disk I/O-intensive**, **Network-intensive**, and **Server workload** categories.
 
@@ -20,7 +20,7 @@ Each application was chosen because it is lightweight, easy to run on Ubuntu Ser
 
 ---
 
-## 2. Installation Documentation (All commands via SSH)
+## Installation Documentation (All commands via SSH)
 
 All applications will be installed **from the workstation using SSH**, not from VirtualBox console.
 
@@ -30,19 +30,19 @@ ssh alex@192.168.56.20 "sudo apt update"
 
 Once connected, the following commands install each tool:
 
-2.1 Update system first
+  Update system first
 sudo apt update && sudo apt upgrade -y
 
-2.2 Install CPU & RAM testing tool (stress-ng)
+  Install CPU & RAM testing tool (stress-ng)
 sudo apt install stress-ng -y
 
-2.3 Install Disk I/O benchmarking tool (fio)
+  Install Disk I/O benchmarking tool (fio)
 sudo apt install fio -y
 
-2.4 Install network performance tool (iperf3)
+  Install network performance tool (iperf3)
 sudo apt install iperf3 -y
 
-2.5 Install server application (nginx)
+  Install server application (nginx)
 sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
@@ -50,12 +50,12 @@ sudo systemctl start nginx
 
 All these installations must be done via SSH and documented with screenshots in later weeks.
 
-3. Expected Resource Profiles
+   Expected Resource Profiles
 
 Below are the anticipated resource usage patterns for each application.
 These predictions will be compared with real tests in Week 6.
 
-3.1 CPU-Intensive – stress-ng
+  CPU-Intensive – stress-ng
 
 Expected behaviour:
 
@@ -65,7 +65,7 @@ Minimal RAM usage
 
 No disk or network load
 
-3.2 RAM-Intensive – stress-ng (memory mode)
+  RAM-Intensive – stress-ng (memory mode)
 
 Expected behaviour:
 
@@ -75,7 +75,7 @@ Swap activity if memory limit is exceeded
 
 Low CPU usage
 
-3.3 Disk I/O-Intensive – fio
+  Disk I/O-Intensive – fio
 
 Expected behaviour:
 
@@ -85,7 +85,7 @@ Increase in IOPS and latency
 
 CPU moderately used during I/O processing
 
-3.4 Network-Intensive – iperf3
+   Network-Intensive – iperf3
 
 Expected behaviour:
 
@@ -95,7 +95,7 @@ Measure upload/download speeds from workstation
 
 Minimal CPU and disk load
 
-3.5 Server Application – nginx
+  Server Application – nginx
 
 Expected behaviour:
 
@@ -111,11 +111,11 @@ Minimal disk activity
 
 Fast response times for static content
 
-4. Monitoring Strategy
+   Monitoring Strategy
 
 For each application, a specific measurement approach will be used. All commands will be executed remotely via SSH.
 
-4.1 CPU Testing (stress-ng)
+   CPU Testing (stress-ng)
 
 Monitor with:
 
@@ -149,7 +149,7 @@ Swap usage
 
 Memory pressure
 
-4.3 Disk I/O Testing (fio)
+  Disk I/O Testing (fio)
 
 Monitor with:
 
@@ -167,7 +167,7 @@ Disk latency
 
 Disk utilisation %
 
-4.4 Network Testing (iperf3)
+   Network Testing (iperf3)
 
 From workstation (as client):
 
@@ -187,7 +187,7 @@ Jitter
 
 Packet loss
 
-4.5 Server Application Testing (nginx)
+   Server Application Testing (nginx)
 
 Monitor with:
 
@@ -208,13 +208,13 @@ Active connections
 
 Request throughput
 
-5. Week 3 Reflection
+  Week 3 Reflection
 
 This week I selected the applications I will use to generate different workloads and built a clear plan on how to test them.
 I now understand how each tool stresses a different part of the operating system and how I will monitor performance remotely.
 This prepares me for Week 4 (initial configuration + security) and Week 6 (performance testing and charts).
 
-6. Week 3 Checklist
+  Week 3 Checklist
 Requirement	Status	Evidence
 Application Selection Matrix	✔️	Section 1
 Installation Documentation	✔️	Section 2

@@ -5,7 +5,7 @@ System Architecture Diagram
 
 This is the basic layout I planned for the coursework: a headless Ubuntu Server VM running in VirtualBox, and my host computer acting as the workstation. All administration will be done through SSH, not the VirtualBox console.
 
-Choosing the Server Distribution
+**Choosing the Server Distribution**
 
 For the server OS, I went with Ubuntu Server 22.04 LTS.
 My goal was to use something stable, well-documented, and close to what’s used in real cloud environments. Ubuntu Server ticked all those boxes.
@@ -37,7 +37,7 @@ Hybrid	Very flexible	More complicated setup
 
 So I went with Option B (Host Machine + SSH).
 
-Network Configuration Plan
+**Network Configuration Plan**
 
 The server and workstation communicate through VirtualBox Host-Only Networking.
 This keeps everything isolated from the external network, which is required for the module.

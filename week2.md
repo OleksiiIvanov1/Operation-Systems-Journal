@@ -4,7 +4,7 @@
 
 ##  Performance Testing Plan
 
-### Purpose of Performance Testing
+ **Purpose of Performance Testing**
 The purpose of this performance testing plan is to create a consistent and repeatable method for evaluating the performance of my Ubuntu Server 22.04 LTS system.
 
 This performance testing will later support Week 6, where I will produce:
@@ -159,9 +159,12 @@ My threat model helped me define realistic risks and choose proper mitigation st
 
 Next week, I will select applications for load testing and prepare installation documentation.
 
- Week 2 Deliverables Checklist
-Requirement	Status	Evidence
+ **Week 2 Deliverables Checklist:**
 Performance Testing Plan	✔️	Section 1
+
 Security Configuration Checklist	✔️	Section 2
+
 Threat Model	✔️	Section 3
+
 Reflection	✔️	Section 4
+

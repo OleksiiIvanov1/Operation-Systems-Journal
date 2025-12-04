@@ -54,7 +54,7 @@ ssh alex@192.168.56.20 "ss -tuna"
 This checklist outlines the security measures I will implement in Weeks 4 and 5.
 For Week 2, this document serves as planning.
 
-✔ SSH Hardening
+ SSH Hardening
 Disable password authentication
 
 Enable key-based authentication
@@ -67,7 +67,7 @@ Disable root login
 
 (Optional) Change default SSH port
 
-✔ Firewall Configuration (UFW)
+ Firewall Configuration (UFW)
 Enable UFW
 
 Allow SSH only from workstation
@@ -76,7 +76,7 @@ Deny all other incoming traffic
 
 Allow ports only when required for testing
 
-✔ Mandatory Access Control (AppArmor / SELinux)
+ Mandatory Access Control (AppArmor / SELinux)
 Ensure AppArmor is enabled
 
 Check loaded profiles
@@ -85,14 +85,14 @@ Monitor denied activity in logs
 
 Apply strict profiles to selected services
 
-✔ Automatic Security Updates
+ Automatic Security Updates
 Enable unattended-upgrades
 
 Apply security patches automatically
 
 Log update actions for verification
 
-✔ User Privilege Management
+ User Privilege Management
 Create a non-root admin user
 
 Configure secure sudo usage
@@ -101,7 +101,7 @@ Restrict file permissions
 
 Disable direct root access
 
-✔ Network Security
+ Network Security
 Disable unnecessary network services
 
 Verify open ports with ss and nmap

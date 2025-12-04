@@ -164,12 +164,20 @@ Only key-based access allowed
 
 Everything now runs through remote SSH, which prepares the environment for advanced security tasks in Week 5.
 
-Week 4 Checklist
+Week 4 Checklist:
+
 Requirement	Status	Evidence
+
 SSH Key Authentication	✔️	Section above
+
 Firewall Configuration	✔️	UFW ruleset
+
 User & Privilege Setup	✔️	Commands documented
+
 SSH Access Evidence	✔️	Explanation provided
+
 Config File Comparison	✔️	Before/after shown
+
 Remote Admin Evidence	✔️	Commands shown
+
 Reflection	✔️	Included

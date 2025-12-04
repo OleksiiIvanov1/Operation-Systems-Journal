@@ -95,10 +95,16 @@ This week brought everything together — the workloads from Week 3, the monitor
 Running the tests gave me a clearer understanding of how Linux behaves under different system loads.
 The next step is Week 7, where I audit the full system configuration.
 
-Week 6 Checklist
+Week 6 Checklist:
+
 Requirement	Status
+
 Performance data collected	✔️
+
 Visualisation plan	✔️
+
 Network analysis	✔️
+
 Optimisation testing	✔️
+
 Reflection	✔️

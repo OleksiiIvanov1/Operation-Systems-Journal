@@ -87,14 +87,14 @@ Overall, Week 1 set the foundation for everything else. Next week I’ll focus o
 
 Week 1 Checklist:
 
-System Architecture Diagram	✔️
+System Architecture Diagram	- completed
 
-Distribution Selection	✔️
+Distribution Selection	- completed
 
-Workstation Choice	✔️
+Workstation Choice	- completed
 
-Network Configuration	✔️
+Network Configuration	- completed
 
-CLI Evidence	✔️
+CLI Evidence	- completed
 
-Reflection	✔️
+Reflection	- completed

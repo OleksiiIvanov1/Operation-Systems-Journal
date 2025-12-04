@@ -5,6 +5,7 @@
 ##  Performance Testing Plan
 
  **Purpose of Performance Testing**
+ 
 The purpose of this performance testing plan is to create a consistent and repeatable method for evaluating the performance of my Ubuntu Server 22.04 LTS system.
 
 This performance testing will later support Week 6, where I will produce:

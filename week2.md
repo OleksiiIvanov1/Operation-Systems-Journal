@@ -35,9 +35,9 @@ vmstat	System-wide stats (CPU, memory, I/O)
 iostat	Disk I/O performance
 free -h	Memory usage overview
 df -h	Disk space usage
-ss -tuna	Network connections & listening ports
+ss -tuna	Network connections and listening ports
 ping	Latency and packet loss
-journalctl	System logs for warnings & errors
+journalctl	System logs for warnings and errors
 
 Example Remote Commands
 These are executed from the workstation, not inside VirtualBox:

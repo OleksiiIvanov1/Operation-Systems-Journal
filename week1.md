@@ -75,6 +75,8 @@ Description:    Ubuntu 22.04.3 LTS
 Release:        22.04
 Codename:       jammy
 
+![Week 1 CLI Output](/images/week1-cli-output.png)
+
 Reflection on Week 1
 
 Most of this week was about planning the environment, getting VirtualBox working properly, and checking that I could actually SSH into the server.

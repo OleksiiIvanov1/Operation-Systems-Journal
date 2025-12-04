@@ -1,4 +1,4 @@
-Week 1 – System Setup and Initial Planning
+## Week 1 – System Setup and Initial Planning
 System Architecture Diagram
 <img width="751" height="668" alt="diagram" src="https://github.com/user-attachments/assets/9fa5787c-2c7b-4362-982b-272ac89fc540" />
 
@@ -20,7 +20,7 @@ Alpine Linux	Super lightweight	Harder for beginners, minimal tools	Best for cont
 Why I chose Ubuntu Server 22.04:
 It’s reliable, familiar, and widely supported. For this coursework I need to configure a lot of different tools, and Ubuntu makes that much smoother.
 
-Workstation Setup Decision
+**Workstation Setup Decision**
 
 For the workstation, I decided to use my host machine with an SSH client instead of a second VM.
 
@@ -77,7 +77,7 @@ Codename:       jammy
 
 ![Week 1 CLI Output](/images/week1-cli-output.png)
 
-Reflection on Week 1
+**Reflection on Week 1**
 
 Most of this week was about planning the environment, getting VirtualBox working properly, and checking that I could actually SSH into the server.
 At first VirtualBox refused to start any VMs because virtualisation was turned off in BIOS, so I had to fix that.
@@ -85,7 +85,7 @@ After that, networking took a bit of trial and error because the Host-Only adapt
 
 Overall, Week 1 set the foundation for everything else. Next week I’ll focus on the security and performance testing plan.
 
-Week 1 Checklist:
+**Week 1 Checklist:**
 
 System Architecture Diagram	- completed
 

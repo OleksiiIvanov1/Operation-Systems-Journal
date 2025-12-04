@@ -27,7 +27,7 @@ The testing goals are:
 All performance testing will be executed **from my workstation via SSH**.
 
 #### Remote SSH Access
-bash
+
 ssh alex@192.168.56.20
 Monitoring Tools Used
 Tool	Purpose
@@ -43,7 +43,7 @@ journalctl	System logs for warnings and errors
 Example Remote Commands
 These are executed from the workstation, not inside VirtualBox:
 
-bash
+
 Copy code
 ssh alex@192.168.56.20 "top -b -n 1"
 ssh alex@192.168.56.20 "vmstat 2 5"

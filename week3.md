@@ -23,19 +23,19 @@ ssh alex@192.168.56.20 "sudo apt update"
 
 Below are the installation commands for each tool:
 
-# Update and upgrade system
+**Update and upgrade system**
 sudo apt update && sudo apt upgrade -y
 
-# CPU and RAM stress tool
+**CPU and RAM stress tool**
 sudo apt install stress-ng -y
 
-# Disk I/O benchmarking tool
+**Disk I/O benchmarking tool**
 sudo apt install fio -y
 
-# Network performance tool
+**Network performance tool**
 sudo apt install iperf3 -y
 
-# Simple web server
+**Simple web server**
 sudo apt install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
@@ -201,10 +201,15 @@ Which commands I will use during monitoring
 
 This sets me up well for Week 4, where I’ll begin locking down the server and applying the first security configurations.
 
-Week 3 Deliverables Checklist
-Requirement	Status	Evidence
-Application Selection Matrix	✔️	Included above
-Installation Documentation	✔️	Commands listed
-Expected Resource Profiles	✔️	Section above
-Monitoring Strategy	✔️	Covered for each tool
-Reflection	✔️	End of Week 3
+Week 3 Deliverables Checklist:
+
+Application Selection Matrix Included above - completed
+
+Installation Documentation	Commands listed - completed
+
+Expected Resource Profiles	Section above - completed
+
+Monitoring Strategy	Covered for each tool - completed
+
+Reflection	End of Week 3 - completed
+

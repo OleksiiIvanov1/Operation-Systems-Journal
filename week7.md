@@ -98,9 +98,7 @@ This final week allowed me to evaluate the entire server configuration from both
 Running Lynis and nmap helped me identify remaining gaps, while the service audit ensured that the system was not running anything unnecessary.
 Completing the seven-week project helped me develop real command-line administration skills and understand OS behaviour as an integrated system.
 
-Week 7 Checklist
-
-Requirement	Status
+Week 7 Checklist:
 
 Lynis scan	✔️
 

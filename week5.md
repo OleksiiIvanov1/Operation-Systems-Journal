@@ -102,11 +102,18 @@ This week deepened my understanding of Linux security controls beyond the basics
 I configured AppArmor profiles, enabled automatic updates, and installed fail2ban to guard against brute-force attacks.
 Creating both scripts helped me practice automation and prepare for the monitoring workflows required in Week 6.
 
-Week 5 Checklist
+Week 5 Checklist:
+
 Requirement	Status	Evidence
+
 Access Control (AppArmor)	✔️	Section above
+
 Automatic Updates	✔️	Enabled + log checks
-fail2ban Configuration	✔️	Service enabled
+
+fail2ban Configuration ✔️ Service enabled
+
 security-baseline.sh	✔️	Script included
+
 monitor-server.sh	✔️	Script included
+
 Reflection	✔️	Completed

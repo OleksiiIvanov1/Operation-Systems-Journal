@@ -1,5 +1,6 @@
 ## Week 1 – System Setup and Initial Planning
 System Architecture Diagram
+
 <img width="751" height="668" alt="diagram" src="https://github.com/user-attachments/assets/9fa5787c-2c7b-4362-982b-272ac89fc540" />
 
 This is the basic layout I planned for the coursework: a headless Ubuntu Server VM running in VirtualBox, and my host computer acting as the workstation. All administration will be done through SSH, not the VirtualBox console.

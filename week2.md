@@ -160,6 +160,7 @@ My threat model helped me define realistic risks and choose proper mitigation st
 Next week, I will select applications for load testing and prepare installation documentation.
 
  **Week 2 Deliverables Checklist:**
+ 
 Performance Testing Plan	✔️	Section 1
 
 Security Configuration Checklist	✔️	Section 2

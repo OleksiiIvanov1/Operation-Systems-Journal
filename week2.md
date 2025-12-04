@@ -162,11 +162,11 @@ Next week, I will select applications for load testing and prepare installation 
 
  **Week 2 Deliverables Checklist:**
  
-Performance Testing Plan	✔️	Section 1
+Performance Testing Plan	Section 1 - completed
 
-Security Configuration Checklist	✔️	Section 2
+Security Configuration Checklist	Section 2 - completed
 
-Threat Model	✔️	Section 3
+Threat Model	Section 3 - completed
 
-Reflection	✔️	Section 4
+Reflection	Section 4 - completed
 

@@ -30,7 +30,7 @@ All performance testing will be executed **from my workstation via SSH**.
 ssh alex@192.168.56.20
 Monitoring Tools Used
 Tool	Purpose
-top / htop	Live CPU & RAM usage
+top / htop	Live CPU and RAM usage
 vmstat	System-wide stats (CPU, memory, I/O)
 iostat	Disk I/O performance
 free -h	Memory usage overview

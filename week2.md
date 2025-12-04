@@ -26,7 +26,7 @@ The testing goals are:
 All performance testing will be executed **from my workstation via SSH**.
 
 #### Remote SSH Access
-```bash
+bash
 ssh alex@192.168.56.20
 Monitoring Tools Used
 Tool	Purpose

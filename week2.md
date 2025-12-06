@@ -130,6 +130,10 @@ Threat 2: Unpatched Vulnerabilities
 Risk: Exploit outdated packages or kernel vulnerabilities.
 Impact: Remote code execution, privilege escalation.
 
+**Screenshot of using the monitoring tool: "top -b -n 1"**
+
+
+
 Mitigation:
 
 Enable automatic security updates

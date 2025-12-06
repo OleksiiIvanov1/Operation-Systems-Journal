@@ -192,4 +192,5 @@ Reflection	Included - completed
 ![Week 4 Screenshot](images/week4-sudoufw-allow.png)
 ![Week 4 Screenshot](images/week4-systemrstrt.png)
 ![Week 4 Screenshot](images/week4-ufwnumbered.png)
+
 ![Week 4 Screenshot](images/week4-whoami.png)

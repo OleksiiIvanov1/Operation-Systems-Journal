@@ -218,6 +218,8 @@ Monitoring Strategy	Covered for each tool - completed
 
 Reflection	End of Week 3 - completed
 
+**Monitoring Evidence**
+
 ![Week 3 Screenshot](images/week3-scrn-fio-y.png)
 ![Week 3 Screenshot](images/week3-system-status-nginx.png)
 

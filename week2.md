@@ -132,7 +132,7 @@ Impact: Remote code execution, privilege escalation.
 
 **Screenshot of using the monitoring tool: "top -b -n 1"**
 
-
+![Week 2 scrn](/images/week2-scrn.png)
 
 Mitigation:
 

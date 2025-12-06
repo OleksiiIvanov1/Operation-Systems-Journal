@@ -220,4 +220,4 @@ Reflection	End of Week 3 - completed
 
 ![Week 3 Screenshot](images/week3-scrn-fio-y.png)
 ![Week 3 Screenshot](images/week3-system-status-nginx.png)
-![Week 3 Screenshot](images/week2install-nginx-y.png)
+![Week 3 Screenshot](images/week3install-nginx-y.png)

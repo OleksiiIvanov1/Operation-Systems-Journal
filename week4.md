@@ -184,4 +184,12 @@ Reflection	Included - completed
 
 **VM Screenshots**
 
-
+![Week 4 Screenshot](images/week4-adduser.png)
+![Week 4 Screenshot](images/week4-deny22.png)
+![Week 4 Screenshot](images/week4-firewall.png)
+![Week 4 Screenshot](images/week4-ls.ssh.png)
+![Week 4 Screenshot](images/week3-scrn-fio-y.png)
+![Week 4 Screenshot](images/week4-sudoufw-allow.png)
+![Week 4 Screenshot](images/week4-systemrstrt.png)
+![Week 4 Screenshot](images/week4-ufwnumbered.png)
+![Week 4 Screenshot](images/week4-whoami.png)

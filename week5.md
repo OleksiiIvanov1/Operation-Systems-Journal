@@ -119,3 +119,15 @@ monitor-server.sh	Script included- completed
 
 Reflection	Completed- completed
 
+**VM commands:**
+![Week 5 Screenshot](images/week5-cat.png)
+![Week 5 Screenshot](images/week5-enblfail2ban.png)
+![Week 5 Screenshot](images/week5-failstatus.png)
+![Week 5 Screenshot](images/week5-jail.png)
+![Week 5 Screenshot](images/week5-jurnalctl.png)
+![Week 5 Screenshot](images/week5-sudodpkg.png)
+![Week 5 Screenshot](images/week5-sudoenabled.png)
+![Week 5 Screenshot](images/week5-sudostatus.png)
+![Week 5 Screenshot](images/week5-sudounatended.png)
+![Week 5 Screenshot](images/week5-sudoverbose.png)
+![Week 5 Screenshot](images/week-apparmor.png)

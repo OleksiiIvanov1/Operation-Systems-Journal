@@ -120,6 +120,7 @@ monitor-server.sh	Script included- completed
 Reflection	Completed- completed
 
 **VM commands:**
+
 ![Week 5 Screenshot](images/week5-cat.png)
 ![Week 5 Screenshot](images/week5-enblfail2ban.png)
 ![Week 5 Screenshot](images/week5-failstatus.png)

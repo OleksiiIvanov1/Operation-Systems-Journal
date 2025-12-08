@@ -111,6 +111,7 @@ SSH & service audit	- completed
 Reflection - completed
 
 **VM OUTPUTS
+
 ![Week 7 Screenshot](images/week7-df.png)
 ![Week 7 Screenshot](images/week7-free.png)
 ![Week 7 Screenshot](images/week7-hard.png)

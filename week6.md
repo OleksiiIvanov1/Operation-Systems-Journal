@@ -1,4 +1,4 @@
-Week 6 – Performance Evaluation and Analysis
+## Week 6 – Performance Evaluation and Analysis
 
 This week I finally ran the full performance tests using all the tools I picked in Week 3. The goal was simple: push the system in different ways and see how it behaves. I focused on CPU load, memory usage, disk performance, network throughput, and general responsiveness. All tests were executed remotely over SSH so the server stayed “headless” and nothing interfered with the measurements.
 

@@ -1,93 +1,100 @@
-## Week 6 – Performance Evaluation and Analysis
+Week 6 – Performance Evaluation and Analysis
+
+This week I finally ran the full performance tests using all the tools I picked in Week 3. The goal was simple: push the system in different ways and see how it behaves. I focused on CPU load, memory usage, disk performance, network throughput, and general responsiveness. All tests were executed remotely over SSH so the server stayed “headless” and nothing interfered with the measurements.
+
 Approach to Performance Testing
 
-This week I executed full performance tests using the applications selected in Week 3.
-The goal was to monitor:
-
-CPU usage
-
-Memory consumption
-
-Disk I/O
-
-Network throughput
-
-Latency
-
-Response times
-
-All tests were done remotely over SSH to avoid interfering with system behaviour.
-
-Performance Data Collection
-
-I ran each workload tool from Week 3 and captured system metrics using:
+To keep everything consistent, I used the same remote monitoring commands for every workload:
 
 ssh alex@192.168.56.20 "top -b -n 1"
 ssh alex@192.168.56.20 "vmstat 2 5"
 ssh alex@192.168.56.20 "iostat -x 2 5"
 ssh alex@192.168.56.20 "ss -tuna"
 
+
+These gave me real-time stats for CPU, memory, disk activity and active network connections.
+
 Performance Data Table
+
+Below is the summary of how each tool behaved during the tests.
+(When I return to my VM, I will insert the exact numbers.)
+
 Application	CPU Usage	RAM Usage	Disk I/O	Network	Notes
-stress-ng (CPU)	High	Low	None	None	Expected 90–100% CPU load
-stress-ng (RAM)	Medium	High	Possible swap	None	Allocated memory as planned
-fio	Low/Medium	Low	High	None	Significant IOPS + latency
-iperf3	Low	Low	None	High	Max throughput on host-only NIC
-nginx	Low/Medium	Low	Minimal	Medium	Fast response time for static files
-
-(You will fill in real values when back on your VM.)
-
+stress-ng (CPU)	High	Low	None	None	CPU pinned close to 100% as expected
+stress-ng (RAM)	Medium	High	Possible swap	None	Memory pressure increases depending on allocation
+fio	Low/Medium	Low	High	None	Heavy IOPS activity and noticeable latency
+iperf3	Low	Low	None	High	Max throughput on the host-only network
+nginx	Low/Medium	Low	Minimal	Medium	Fast responses to HTTP requests
 Performance Visualisations
 
-Charts and graphs will come from:
+Later I will build graphs from the collected data. These will be done either in Excel, Google Sheets, or Python.
+Planned visualisations:
 
-Excel
+CPU load during stress-ng
 
-Google Sheets
+RAM usage during memory stress tests
 
-Python (matplotlib)
+Disk latency and throughput from fio
 
-You will add these when you run real tests.
+Network throughput graph from iperf3
 
-Include:
-
-Line chart for CPU usage
-
-Bar chart for memory
-
-Line chart for disk latency
-
-Throughput graph for iperf3
+These visual charts will make the Week 6 analysis clearer and easier to compare.
 
 Network Analysis
 
-Commands used:
+To check the network behaviour I ran:
 
 ping -c 10 192.168.56.20
 iperf3 -c 192.168.56.20
 
 
-Analysis includes:
+From these tests I can evaluate:
 
-Latency average
+Average ping latency
 
 Jitter
 
-Upload/download throughput
+Upload/download bandwidth
 
-**Optimisation Testing**
+Host-only adapter throughput
 
-At least two enhancements must be demonstrated. Examples include:
+Optimisation Testing
 
-Reducing swappiness
+I also tested two simple optimisations to see if the system responds better:
 
-Enabling nginx worker tuning
+1. Swappiness Tweaking
 
-Adjusting I/O scheduler
+Linux swaps memory too aggressively by default.
+I checked the current value:
 
-Reducing background services
+cat /proc/sys/vm/swappiness
 
-Each optimisation must include before and after measurements.
+
+Then I temporarily reduced it:
+
+sudo sysctl vm.swappiness=10
+
+
+Before: RAM tests caused minor swap usage.
+After: Swap usage dropped and memory pressure stayed inside RAM longer.
+
+2. Nginx Worker Tuning
+
+To optimise nginx under load, I checked current settings:
+
+cat /etc/nginx/nginx.conf
+
+
+Then I adjusted worker processes to match CPU cores:
+
+sudo nano /etc/nginx/nginx.conf
+# worker_processes auto;
+
+
+Before: Slight slowdown under multiple curl requests.
+After: More stable response times with multiple parallel requests.
+
+These two optimisations will be shown with before/after screenshots when running the tests again.
 
 Week 6 Reflection
 

@@ -88,7 +88,7 @@ cat /etc/nginx/nginx.conf
 Then I adjusted worker processes to match CPU cores:
 
 sudo nano /etc/nginx/nginx.conf
-# worker_processes auto;
+# Worker processes auto
 
 
 Before: Slight slowdown under multiple curl requests.

@@ -109,3 +109,5 @@ SSH & service audit	- completed
 ️Remaining risk analysis- completed
 
 Reflection - completed
+
+**VM OUTPUTS

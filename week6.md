@@ -118,6 +118,5 @@ Reflection	- completed
 ![Week 6 Screenshot](images/week6-iperf.png)
 ![Week 6 Screenshot](images/week6-nginx.png)
 ![Week 6 Screenshot](images/week6-stat.png)
-![Week 6 Screenshot](images/week6-stress.png)
-![Week 6 Screenshot](images/week6-tuna.png)
+![Week 6 Screenshot](images/week6-stress.png)    ![Week 6 Screenshot](images/week6-tuna.png)
 ![Week 6 Screenshot](images/week6-vm.png)

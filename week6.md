@@ -108,3 +108,15 @@ Optimisation testing	- completed
 Reflection	- completed
 
 **VM OUTPUTS**
+![Week 6 Screenshot](images/week6-25.png)
+![Week 6 Screenshot](images/week6-cpustress.png)
+![Week 6 Screenshot](images/week6-curl.png)
+![Week 6 Screenshot](images/week6-fio.png)
+![Week 6 Screenshot](images/week6-free.png)
+![Week 6 Screenshot](images/week6-io.png)
+![Week 6 Screenshot](images/week6-iperf.png)
+![Week 6 Screenshot](images/week6-nginx.png)
+![Week 6 Screenshot](images/week6-stat.png)
+![Week 6 Screenshot](images/week6-stress.png)
+![Week 6 Screenshot](images/week6-tuna.png)
+![Week 6 Screenshot](images/week6-vm.png)

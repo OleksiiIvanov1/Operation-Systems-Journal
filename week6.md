@@ -108,6 +108,7 @@ Optimisation testing	- completed
 Reflection	- completed
 
 **VM OUTPUTS**
+
 ![Week 6 Screenshot](images/week6-25.png)
 ![Week 6 Screenshot](images/week6-cpustress.png)
 ![Week 6 Screenshot](images/week6-curl.png)
